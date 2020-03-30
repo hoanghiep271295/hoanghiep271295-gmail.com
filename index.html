@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SunnyShores Support</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+	    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="icon.png" alt="Logo">
+        </div>
+
+
+    </header>
+
+    <main role="main">
+        <div class="container-divider"></div>
+        <div class="container">
+            <h1>
+                Report a Problem in SunnyShores
+            </h1>
+
+            <div class="form">
+          
+		  
+                <div class="form-field string required"><label for="username">Your username</label>
+                    <input type="text" name="username" id="username" aria-required="true" />
+                </div>
+
+                <div class="form-field string required"><label for="phone">Your phone number</label>
+                    <input type="tel" name="phone" id="phone" aria-required="true" />
+                </div>
+
+                <div class="suggestion-list" data-hc-class="searchbox" data-hc-suggestion-list="true"></div>
+                <div class="form-field text  required  request_description">
+                    <label id="request_description_label" for="request_description">Description</label>
+                    <textarea name="description" id="description" aria-required="true" rows="4"> </textarea>
+                    <p id="request_description_hint">Please try to be as specific as possible. For bugs or lost items,
+                        describe how they happened step-by-step. </p>
+                </div>
+
+
+
+                <footer>
+                 
+				 
+
+                    <button type="button" class="btnSubmit" onclick="submit()">Submit</button>
+                    <script>
+                        function submit() {
+                            var username = document.getElementById("username").value;
+                            var phone = document.getElementById("phone").value;
+                            var des = document.getElementById("description").value;
+                            if (!username.toString()) {
+                                document.getElementById("username").focus();
+                                alert('Username you have entered is not valid!');
+                                return;
+                            }
+                            if (!phone.toString()) {
+                                document.getElementById("phone").focus();
+                                alert('Phone number you have entered is not valid!');
+                                return;
+                            }
+                            var phoneRe = /^(0|84)+(\d{9})$/;
+                            if (!phoneRe.test(String(phone))) {
+                                document.getElementById("phone").focus();
+                                alert('Phone number you have entered is not valid!');
+                                return;
+                            }
+
+                            if (!des.toString()) {
+                                document.getElementById("description").focus();
+                                alert('Description you have entered is not valid!');
+                                return;
+                            }
+                            document.getElementById("username").value = "";
+                            document.getElementById("phone").value = "";
+                            document.getElementById("description").value = "";
+
+                            alert('Your message has been delivered');
+                            // document.getElementById("demo").innerHTML = "Hello World";
+                        }
+                    </script>
+                </footer>
+
+                </form>
+
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
